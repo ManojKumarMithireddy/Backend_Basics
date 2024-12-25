@@ -1,0 +1,85 @@
+
+body{
+    background-color: #c7dcf0;;
+}
+.header{
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.head-logo{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 5px;
+    padding: 10px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 5px;
+}
+
+.logout{
+    align-items: center;
+    padding-top: 8px;
+}
+
+.nav{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    /* 4 items per row */
+    flex-wrap: wrap;
+}
+
+/* From Uiverse.io by xueyuantan */ 
+.navLink {
+    height: 3em;
+    padding: 0% 1%;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    align-content: center;
+    
+   }
+   
+   .navLink::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .navLink:hover::before {
+    width: 9em;
+   }
+
+   .navActive{
+    height: 3em;
+    padding: 0% 1%;
+    border-radius: 30em;
+    align-content: center;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    display: block;
+
+   }

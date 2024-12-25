@@ -1,0 +1,104 @@
+:root {
+  --primary-color: #007BFF; /* Trust */
+  --secondary-color: #28A745; /* Health */
+  --accent-color: #AEEEEE; /* Calmness */
+  --background-color: #c7dcf0; /* Cleanliness */
+  --form-background: #FFFFFF; /* White for form background */
+  --text-color: #333333; /* Readability */
+  --hover-border-color: #28A745; /* Green for hover effects */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--background-color); /* Light background for the container */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap for better spacing */
+  padding: 2em; /* Uniform padding */
+  background-color: var(--form-background); /* White background for the form */
+  border-radius: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  transition: transform 0.4s ease-in-out, border 0.4s ease-in-out; /* Smooth transition */
+}
+
+.form:hover {
+  transform: scale(1.08);
+  border: 2px solid var(--hover-border-color); /* Green border on hover */
+}
+
+#heading {
+  text-align: center;
+  margin: 0; /* Removed margin for better alignment */
+  padding: 1em 0; /* Added padding for spacing */
+  color: var(--primary-color); /* Blue color for the heading */
+  font-size: 1.5em; /* Increased font size */
+  font-weight: bold; /* Made the heading bold */
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start */
+  gap: 0.5em;
+  border-radius: 25px;
+  padding: 0.6em;
+  border: 1px solid #ccc; /* Light gray border for definition */
+  outline: none;
+  color: var(--text-color); /* Dark text color */
+  background-color: #F8F9FA; /* Light background for fields */
+  box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  transition: border 0.3s ease; /* Smooth border transition */
+}
+
+.field:hover {
+  border-color: var(--hover-border-color); /* Change border color on hover */
+}
+
+.input-icon {
+  height: 1.5em; /* Slightly larger icon */
+  width: 1.5em;
+  fill: var(--primary-color); /* Blue icon color */
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #333; /* Dark text color for input */
+  font-size: 1em; /* Increased font size */
+}
+
+.form .btn {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 2em; /* Adjusted margin */
+}
+
+.button1, .button2, .button3 {
+  padding: 0.6em 1.5em; /* Uniform padding */
+  border-radius: 5px;
+  margin: 3px;
+  border: none;
+  outline: none;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out; /* Smooth transition */
+  background-color: var(--secondary-color); /* Green background for buttons */
+  color: white; /* White text color */
+  font-size: 1em; /* Increased font size */
+}
+
+.button1:hover, .button2:hover, .button3:hover {
+  background-color: var(--primary-color); /* Blue background on hover */
+  color: white; /* Keep text color white */
+}
+
+.button3 {
+  margin-bottom: 2em; /* Adjusted margin */
+}
