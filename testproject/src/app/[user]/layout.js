@@ -1,67 +1,70 @@
+// components/Layout.js
 'use client';
-
-import React, { useEffect } from 'react';
-import { useUserStore } from '@/store/userStore';
+import React, {useEffect} from 'react';
+import { VscAccount } from 'react-icons/vsc';
+import { BiHomeAlt } from 'react-icons/bi';
+import { MdOutlineSettings } from 'react-icons/md';
+import './layout.css';
 import Link from 'next/link';
-import './page.css';
 import { usePathname, useRouter } from 'next/navigation';
-
-export default function Welcome({ children }) {
-  const user = useUserStore((state) => state.user);
-  const pathname = usePathname();
-  const router = useRouter();
+import { useUserStore } from '@/store/userStore';
 
 
-  const navLinks = [
-    { href: `/${user.userName}`, label: 'Dashboard' },
-    { href: `/${user.userName}/profile`, label: 'Profile' },
-    { href: `/${user.userName}/appointments`, label: 'Appointments' },
-    
-   
-  ];
-  useEffect(() => {
-    // if user is not logged in, redirect to login page
-    if (!user.userName) {
-      alert('Please login to continue');
-      router.push('/');
-    }
-  }, [user.userName]);
+const Layout = ({ children }) => {
+    const pathname = usePathname();
+    const router = useRouter();
+    const user = useUserStore((state) => state.user);
 
-  const handleLogout = () => {
-    // clear the local storage and redirect to login page
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('user');
-    }
-  };
+  
+    useEffect(() => {
+      // if user is not logged in, redirect to login page
+      if (!user.userName) {
+        alert('Please login to continue');
+        router.push('/');
+      }
+    }, [user.userName]);
+  
+    const handleLogout = () => {
+      // clear the local storage and redirect to login page
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('user');
+      }
+    };
   return (
     <>
-      {/* Header with logo, name in first row and navigation options in second row */}
-      <div className="header">
-        <div className="head-logo">
-          <div className="logo">
-            <img src="/logo.png" alt="logo" />
-            <p>Hospiatal Management System</p>
-          </div>
-          <div className="logout">
-            {/* logout */}
-            <Link href="/" onClick={handleLogout}>
-              Logout
-            </Link>
-          </div>
+      <header>
+        <h1>Dashboard</h1>
+        <div className="user-info">
+          <span><Link href="/" className='logout' onClick={handleLogout}>Logout</Link></span>
         </div>
-        <div className="nav">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              href={href}
-              className={pathname === href ? 'navActive' : 'navLink'}
-              key={href}>
-              {label}
-            </Link>
-          ))}
+      </header>
+      <div className="main-content">
+        <div className="sidebar">
+          <ul>
+            <li>
+              <Link href={`/${user.userName}`} className={pathname === `/${user.userName}` ? 'active' : ''}>
+                <BiHomeAlt className='icon'/>
+                <span>Home</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <VscAccount className='icon'/>
+                <span>Users</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="#">
+                <MdOutlineSettings className='icon'/>
+                <span>Settings</span>
+              </Link>
+            </li>
+          </ul>
         </div>
+        <div className="cards">{children}</div>
       </div>
-      <div>Welcome {user.userName}</div>
-      <main>{children}</main>
     </>
   );
-}
+};
+
+export default Layout;

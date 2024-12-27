@@ -1,6 +1,9 @@
+'use client';
 import React from 'react';
+import { redirect, usePathname } from 'next/navigation';
 
-
-export default function Page() {
-    return <div>This is a page</div>;
-    }
+export default function Dashboard() {
+  const pathname = usePathname();
+  redirect(`${pathname}/home`);
+  return <></>;
+}
