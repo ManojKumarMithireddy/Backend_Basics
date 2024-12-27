@@ -1,0 +1,14 @@
+.NotFound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+div{
+    text-align: center;
+}
+
+.Link{
+    color: #54b8bf;
+}

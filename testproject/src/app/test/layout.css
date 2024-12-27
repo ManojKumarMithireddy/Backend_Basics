@@ -1,0 +1,83 @@
+:root {
+  --primary-color: #007BFF; /* Trust */
+  --secondary-color: #28A745; /* Health */
+  --accent-color: #AEEEEE; /* Calmness */
+  --background-color: #c7dcf0; /* Cleanliness */
+  --form-background: #FFFFFF; /* White for form background */
+  --text-color: #333333; /* Readability */
+  --hover-border-color: #2ba146; /* Green for hover effects */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.sidebar {
+  width: 250px;
+  background-color: white; /* White */
+  color: var(--primary-color); /* Trust */
+  min-height: 100vh;
+  position: relative;
+}
+
+.sidebar ul li a {
+  color: var(--primary-color); /* Trust */
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: var(--hover-border-color); /* Green for hover effects */
+  color: white;
+}
+
+span{
+  margin-bottom: 18px;
+}
+
+.icon {
+  width: 24px; /* Set a fixed width */
+  height: 24px; /* Set a fixed height */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+
+
+
+.main-content {
+  display: flex;
+  flex-grow: 1; /* Allow main content to grow */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--form-background);
+  color: var(--primary-color);
+  padding: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
